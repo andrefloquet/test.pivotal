@@ -16,7 +16,10 @@
 
         <!-- JQuery --> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" type="text/javascript"></script>
-        
+
+        <!-- ckeditor --> 
+        <script src="https://cdn.ckeditor.com/4.7.0/standard/ckeditor.js" type="text/javascript"></script>
+ 
         <!-- Bootstrap --> 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -32,14 +35,17 @@
     <body class="">
         <div class="container">
             <form class="mt-5">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <div class="row">
+                    <h3>Insert PodCast</h3>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="Name">Name</label>
+                    <input type="text" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Enter name">
+                    <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -50,9 +56,13 @@
 
 	$( document ).ready(function() {
 
-		//$("#clear").on("click", function(){
-			//alert("test")
-		//})
+        CKEDITOR.replace('description', 
+        {
+            allowedContent: 'p; a[!href]; span; ul; ol; ul li; ol li; b; strong; i; em; br; hr; h2; div;',
+            specialChars: [],
+            scayt_autoStartup: true,
+            removePlugins: 'wsc'
+        });
 	});
 	
 </script>
