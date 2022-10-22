@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\PostCast;
+use App\Models\PodCast;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PostCastPolicy
+class PodCastPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class PostCastPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PostCast  $postCast
+     * @param  \App\Models\PodCast  $podCast
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, PostCast $postCast)
+    public function view(User $user, PodCast $podCast)
     {
         //
     }
@@ -48,10 +48,10 @@ class PostCastPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PostCast  $postCast
+     * @param  \App\Models\PodCast  $podCast
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, PostCast $postCast)
+    public function update(User $user, PodCast $podCast)
     {
         //
     }
@@ -60,10 +60,10 @@ class PostCastPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PostCast  $postCast
+     * @param  \App\Models\PodCast  $podCast
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, PostCast $postCast)
+    public function delete(User $user, PodCast $podCast)
     {
         //
     }
@@ -72,10 +72,10 @@ class PostCastPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PostCast  $postCast
+     * @param  \App\Models\PodCast  $podCast
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, PostCast $postCast)
+    public function restore(User $user, PodCast $podCast)
     {
         //
     }
@@ -84,10 +84,10 @@ class PostCastPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PostCast  $postCast
+     * @param  \App\Models\PodCast  $podCast
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, PostCast $postCast)
+    public function forceDelete(User $user, PodCast $podCast)
     {
         //
     }

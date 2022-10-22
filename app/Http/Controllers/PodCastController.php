@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PostCast;
-use App\Http\Requests\StorePostCastRequest;
-use App\Http\Requests\UpdatePostCastRequest;
+use App\Models\PodCast;
+use App\Http\Requests\StorePodCastRequest;
+use App\Http\Requests\UpdatePodCastRequest;
 
-class PostCastController extends Controller
+class PodCastController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class PostCastController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePostCastRequest  $request
+     * @param  \App\Http\Requests\StorePodCastRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostCastRequest $request)
+    public function store(StorePodCastRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class PostCastController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PostCast  $postCast
+     * @param  \App\Models\PodCast  $podCast
      * @return \Illuminate\Http\Response
      */
-    public function show(PostCast $postCast)
+    public function show(PodCast $podCast)
     {
         //
     }
@@ -53,10 +53,10 @@ class PostCastController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PostCast  $postCast
+     * @param  \App\Models\PodCast  $podCast
      * @return \Illuminate\Http\Response
      */
-    public function edit(PostCast $postCast)
+    public function edit(PodCast $podCast)
     {
         //
     }
@@ -64,11 +64,11 @@ class PostCastController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePostCastRequest  $request
-     * @param  \App\Models\PostCast  $postCast
+     * @param  \App\Http\Requests\UpdatePodCastRequest  $request
+     * @param  \App\Models\PodCast  $podCast
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostCastRequest $request, PostCast $postCast)
+    public function update(UpdatePodCastRequest $request, PodCast $podCast)
     {
         //
     }
@@ -76,10 +76,10 @@ class PostCastController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PostCast  $postCast
+     * @param  \App\Models\PodCast  $podCast
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PostCast $postCast)
+    public function destroy(PodCast $podCast)
     {
         //
     }
