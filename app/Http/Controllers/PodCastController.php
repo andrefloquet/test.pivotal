@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PodCast;
 use App\Http\Requests\StorePodCastRequest;
 use App\Http\Requests\UpdatePodCastRequest;
+use App\Http\Resources\PodCast as PodCastResource;
 
 class PodCastController extends Controller
 {
@@ -36,7 +37,14 @@ class PodCastController extends Controller
      */
     public function store(StorePodCastRequest $request)
     {
-        //
+        $pc                = new PodCast;
+        $pc->name          = $request->name;
+        $pc->description   = $request->description;
+        $pc->marketing_url = $request->marketing_url;
+        $pc->feed_url      = $request->feed_url;
+		$pc->save();
+
+        return new PodCastResource($pc);
     }
 
     /**

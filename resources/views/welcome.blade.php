@@ -22,7 +22,7 @@
  
         <!-- Bootstrap --> 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <!--script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script-->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -32,22 +32,31 @@
             }
         </style>
     </head>
-    <body class="">
+    <body>
         <div class="container">
-            <form class="mt-5">
-                <div class="row">
+            <form class="mt-5" id="form">
+                @csrf
+                <div class="row text-center">
                     <h3>Insert PodCast</h3>
                 </div>
                 <div class="form-group mt-3">
-                    <label for="Name">Name</label>
-                    <input type="text" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Enter name">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" required>
                     <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea class="form-control" id="description" rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group mt-3">
+                    <label for="marketing_url">Marketing URL</label>
+                    <input type="text" class="form-control" id="marketing_url" placeholder="Enter Marketing URL" required>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="feed_url">Feed URL</label>
+                    <input type="text" class="form-control" id="feed_url" placeholder="Enter Feed URL" required>
+                </div>
+                <button type="submit" class="btn btn-primary mb-5">Submit</button>
             </form>
         </div>
     </body>
@@ -62,6 +71,36 @@
             specialChars: [],
             scayt_autoStartup: true,
             removePlugins: 'wsc'
+        });
+
+        $('#form').on('submit', function(e){
+            e.preventDefault();
+            
+            var data = {
+                'name': $('#name').val(), 
+                'description': CKEDITOR.instances['description'].getData(), 
+                'marketing_url': $('#marketing_url').val(), 
+                'feed_url': $('#feed_url').val()
+            }
+
+            console.log(data);
+
+            $.ajax({
+                url: '/podcasts',
+                type: 'post',
+                data : data,
+                success: function(response) {
+
+                    if(response) {
+
+                        alert(response);
+                        //console.log(response);
+
+                    } else {
+                        alert("Error");
+                    }
+                }
+			}); 
         });
 	});
 	
